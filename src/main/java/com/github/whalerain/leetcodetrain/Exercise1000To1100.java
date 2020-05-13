@@ -1,9 +1,10 @@
-package com.github.whalerain.leetcodetrain.simple;
+package com.github.whalerain.leetcodetrain;
 
 /**
  * @author ZhangXi
  */
-public class Month202005 {
+public class Exercise1000To1100 {
+
 
     /**
      * 1013. 将数组分成和相等的三个部分
@@ -40,9 +41,6 @@ public class Month202005 {
 
         return false;
     }
-
-
-
 
 
 }
