@@ -1,7 +1,6 @@
 package com.github.whalerain.leetcodetrain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author ZhangXi
@@ -15,32 +14,35 @@ public class Exercise300To400 {
      */
     public static List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         List<List<Integer>> result = new ArrayList<>();
-        if (null == nums1 || nums1.length == 0 || null == nums2 || nums2.length == 0) {
+        if (null == nums1 || nums1.length == 0 || null == nums2 || nums2.length == 0 || k == 0) {
             return result;
         }
-        int index = 0;
 
+        TreeMap<Integer, List<List<Integer>>> sumMap = new TreeMap<>();
 
-        for (int i=0; i<nums1.length; i++) {
-            int nextMin = (i == nums1.length - 1 ? nums1[i] : nums1[i+1]) + nums2[0];
+        for (int i=0; i< nums1.length; i++) {
             for (int j=0; j<nums2.length; j++) {
-                if (index >= k) {
-                    break;
-                }
-                if (i < nums1.length -1 && nums1[i] + nums2[j] > nextMin) {
-                    break;
-                }
-                List<Integer> arr = new ArrayList<>(2);
-                arr.add(nums1[i]);
-                arr.add(nums2[j]);
-                result.add(arr);
-                index++;
-            }
-            if (index >= k) {
-                // 退出算法
-                break;
+                Integer sum = nums1[i] + nums2[j];
+                List<List<Integer>> partResult = sumMap.containsKey(sum) ? sumMap.get(sum) : new LinkedList<>();
+                List<Integer> arrUnit = Arrays.asList(nums1[i], nums2[j]);
+                partResult.add(arrUnit);
+                sumMap.put(sum, partResult);
             }
         }
+
+        Iterator<Integer> it = sumMap.keySet().iterator();
+        // treeMap的Key默认升序排序
+        while (it.hasNext()) {
+            List<List<Integer>> partResult = sumMap.get(it.next());
+            for (List<Integer> unit : partResult) {
+                if (result.size() < k) {
+                    result.add(unit);
+                } else {
+                    return result;
+                }
+            }
+        }
+
         return result;
     }
 
