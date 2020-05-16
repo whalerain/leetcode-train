@@ -1,14 +1,16 @@
-package com.github.whalerain.leetcodetrain;
+package com.github.whalerain.leetcodetrain.exerciseUp1000;
 
 /**
+ * 1013. 将数组分成和相等的三个部分
+ * https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum/
+ *
  * @author ZhangXi
  */
-public class Exercise1000To1100 {
+public class Exercise1013 {
 
 
     /**
-     * 1013. 将数组分成和相等的三个部分
-     * https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum/
+     *
      */
     public static boolean canThreePartsEqualSum(int[] array) {
         if (null == array || array.length < 3) {

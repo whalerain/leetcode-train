@@ -1,16 +1,18 @@
-package com.github.whalerain.leetcodetrain;
+package com.github.whalerain.leetcodetrain.exerciseUp300;
 
 import java.util.*;
 
 /**
+ * 373. 查找和最小的K对数字
+ * https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/
+ *
  * @author ZhangXi
  */
-public class Exercise300To400 {
+public class Exercise373 {
 
 
     /**
-     * 373. 查找和最小的K对数字
-     * https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/
+     *
      */
     public static List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         List<List<Integer>> result = new ArrayList<>();
